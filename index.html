@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-    <main class="container mx-auto px-4 py-8">
-        Hello World!
-    </main>
-</body>
-</html>
+<script>
+    async function getRandomNumbers() {
+      const response = await fetch("https://6cbtgr2supjegh4edktf57cmh40nxdqf.lambda-url.us-east-2.on.aws/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: "{}"
+      });
+    
+      const data = await response.json();
+      console.log("Lambda returned:", data);
+    
+      document.body.innerHTML = `
+        <h1>Random Numbers Generated</h1>
+        <p>Num 1: ${data.num1}</p>
+        <p>Num 2: ${data.num2}</p>
+        <p><strong>Sum:</strong> ${data.result}</p>
+        <button onclick="getRandomNumbers()">Generate More</button>
+      `;
+    }
+    </script>
+    
+    <button onclick="getRandomNumbers()">Get Random Numbers</button>
+    
