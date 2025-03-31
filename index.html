@@ -1,4 +1,11 @@
-<script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Random Numbers</title>
+</head>
+<body>
+  <script>
     async function getRandomNumbers() {
       const response = await fetch("https://6cbtgr2supjegh4edktf57cmh40nxdqf.lambda-url.us-east-2.on.aws/", {
         method: "POST",
@@ -19,7 +26,8 @@
         <button onclick="getRandomNumbers()">Generate More</button>
       `;
     }
-    </script>
-    
-    <button onclick="getRandomNumbers()">Get Random Numbers</button>
-    
+  </script>
+  
+  <button onclick="getRandomNumbers()">Get Random Numbers</button>
+</body>
+</html>
